@@ -17,16 +17,25 @@
   </div>
 </template>
 
-<script setup>
+<!-- <script setup> -->
+<script>
 import { composableTest } from '@/hooks/composable.js';
 
-const { appTitle, addtest, computedAddnum, number } = composableTest();
+export default {
+  props: ['propsData'],
+  emits: ['emitTest'],
+  setup(props, context) {
+    const { appTitle, addtest, computedAddnum, number } = composableTest();
+    context.emit('emitTest', '보낸 메시지');
+    // defineProps({
+    //   propsData: String,
+    // });
+    // const emit = defineEmits(['emitTest']);
+    // emit('emitTest', '보낸 메시지');
 
-defineProps({
-  propsData: String,
-});
-const emit = defineEmits(['emitTest']);
-emit('emitTest', '보낸 메시지');
+    return { appTitle, addtest, computedAddnum, number };
+  },
+};
 
 // import { onBeforeMount, onDeactivated, onMounted } from 'vue';
 // import { computed } from 'vue';
