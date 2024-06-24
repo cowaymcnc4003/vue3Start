@@ -15,34 +15,38 @@
 </template>
 
 <script setup>
-import { onBeforeMount, onDeactivated, onMounted } from 'vue';
-import { computed } from 'vue';
-import { ref } from 'vue';
+import { composableTest } from '@/hooks/composable.js';
 
-// 생명 주기
-onBeforeMount(() => {
-  console.log('onBeforeMount');
-});
+const { appTitle, addtest, computedAddnum, number } = composableTest();
 
-onMounted(() => {
-  console.log('onMounted');
-});
+// import { onBeforeMount, onDeactivated, onMounted } from 'vue';
+// import { computed } from 'vue';
+// import { ref } from 'vue';
 
-onDeactivated(() => {
-  console.log('onDeactivated');
-});
+// // 생명 주기
+// onBeforeMount(() => {
+//   console.log('onBeforeMount');
+// });
 
-// data
-const appTitle = ref('앱 내용 테스트');
-const number = ref(0);
-// method
-function addtest() {
-  number.value = number.value + 1;
-}
-// computed
-const computedAddnum = computed(() => {
-  return number.value + 2;
-});
+// onMounted(() => {
+//   console.log('onMounted');
+// });
+
+// onDeactivated(() => {
+//   console.log('onDeactivated');
+// });
+
+// // data
+// const appTitle = ref('앱 내용 테스트');
+// const number = ref(0);
+// // method
+// function addtest() {
+//   number.value = number.value + 1;
+// }
+// // computed
+// const computedAddnum = computed(() => {
+//   return number.value + 2;
+// });
 </script>
 
 <style lang="scss" scoped></style>
