@@ -1,8 +1,17 @@
 <template>
-  <CompositionApi></CompositionApi>
+  <CompositionApi
+    :propsData="propsData"
+    @emitTest="emitReceive"
+  ></CompositionApi>
 </template>
 <script setup>
+import { ref } from 'vue';
 import CompositionApi from './components/CompositionApi.vue';
+const propsData = ref('프롭 데이터 입니다');
+
+function emitReceive(message) {
+  console.log('Receive:' + message);
+}
 </script>
 
 <style>

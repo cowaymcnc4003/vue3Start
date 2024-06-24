@@ -8,6 +8,9 @@
     <li>
       {{ computedAddnum }}
     </li>
+    <li>
+      {{ propsData }}
+    </li>
   </ul>
   <div>
     <button type="button" @click="addtest()">클릭</button>
@@ -18,6 +21,12 @@
 import { composableTest } from '@/hooks/composable.js';
 
 const { appTitle, addtest, computedAddnum, number } = composableTest();
+
+defineProps({
+  propsData: String,
+});
+const emit = defineEmits(['emitTest']);
+emit('emitTest', '보낸 메시지');
 
 // import { onBeforeMount, onDeactivated, onMounted } from 'vue';
 // import { computed } from 'vue';
