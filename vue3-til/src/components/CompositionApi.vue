@@ -14,27 +14,35 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { onBeforeMount, onDeactivated, onMounted } from 'vue';
 import { computed } from 'vue';
 import { ref } from 'vue';
 
-export default {
-  setup() {
-    // create() 부분
-    // data
-    const appTitle = ref('앱 내용 테스트');
-    const number = ref(0);
-    // method
-    function addtest() {
-      number.value = number.value + 1;
-    }
-    // computed
-    const computedAddnum = computed(() => {
-      return number.value + 2;
-    });
-    return { appTitle, number, addtest, computedAddnum };
-  },
-};
+// 생명 주기
+onBeforeMount(() => {
+  console.log('onBeforeMount');
+});
+
+onMounted(() => {
+  console.log('onMounted');
+});
+
+onDeactivated(() => {
+  console.log('onDeactivated');
+});
+
+// data
+const appTitle = ref('앱 내용 테스트');
+const number = ref(0);
+// method
+function addtest() {
+  number.value = number.value + 1;
+}
+// computed
+const computedAddnum = computed(() => {
+  return number.value + 2;
+});
 </script>
 
 <style lang="scss" scoped></style>
