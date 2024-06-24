@@ -1,9 +1,6 @@
 <template>
-  <CompositionApi></CompositionApi>
+  <div></div>
 </template>
-<script setup>
-import CompositionApi from './components/CompositionApi.vue';
-</script>
 
 <style>
 #app {
